@@ -1,3 +1,7 @@
+! Title: yt-no-shorts-desktop
+! Description: uBlock Origin filters to eradicate YouTube Shorts from desktop and mobile.
+! Homepage: https://github.com/0xshw/yt-no-shorts
+
 ! ============================================================
 ! YOUTUBE SHORTS BLOCKER - DESKTOP
 ! uBlock Origin Filter List
