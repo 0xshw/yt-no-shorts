@@ -1,0 +1,116 @@
+! ============================================================
+! YOUTUBE SHORTS BLOCKER - DESKTOP
+! uBlock Origin Filter List
+! ============================================================
+! GitHub: https://github.com/0xshw/yt-no-shorts
+! Last updated: 2025
+! 
+! This filter removes all YouTube Shorts content from the
+! desktop website (youtube.com)
+! ============================================================
+
+! ----------------------------------------------------------
+! SHORTS BY OVERLAY ATTRIBUTE (primary detection)
+! ----------------------------------------------------------
+youtube.com##ytd-grid-video-renderer:has([overlay-style="SHORTS"])
+youtube.com##ytd-rich-item-renderer:has([overlay-style="SHORTS"])
+youtube.com##ytd-video-renderer:has([overlay-style="SHORTS"])
+youtube.com##ytd-compact-video-renderer:has([overlay-style="SHORTS"])
+youtube.com##ytd-item-section-renderer:has([overlay-style="SHORTS"])
+
+! ----------------------------------------------------------
+! SHORTS BY THUMBNAIL OVERLAY RENDERER
+! ----------------------------------------------------------
+youtube.com##ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"])
+youtube.com##ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"])
+youtube.com##ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"])
+
+! ----------------------------------------------------------
+! SHORTS BY URL DETECTION (/shorts/ in href)
+! ----------------------------------------------------------
+youtube.com##ytd-rich-item-renderer:has(a[href*="/shorts/"])
+youtube.com##ytd-video-renderer:has(a[href*="/shorts/"])
+youtube.com##ytd-compact-video-renderer:has(a[href*="/shorts/"])
+youtube.com##ytd-grid-video-renderer:has(a[href*="/shorts/"])
+youtube.com##ytd-item-section-renderer:has(a[href*="/shorts/"])
+
+! ----------------------------------------------------------
+! SHORTS BY TITLE TEXT (#shorts, #short variations)
+! ----------------------------------------------------------
+! Grid video renderer
+youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(#shorts))
+youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(#Shorts))
+youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(#SHORTS))
+youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(#short))
+youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(#Short))
+
+! Rich item renderer
+youtube.com##ytd-rich-item-renderer:has(#video-title:has-text(#shorts))
+youtube.com##ytd-rich-item-renderer:has(#video-title:has-text(#Shorts))
+youtube.com##ytd-rich-item-renderer:has(#video-title:has-text(#SHORTS))
+youtube.com##ytd-rich-item-renderer:has(#video-title:has-text(#short))
+youtube.com##ytd-rich-item-renderer:has(#video-title:has-text(#Short))
+
+! Video renderer
+youtube.com##ytd-video-renderer:has(#video-title:has-text(#shorts))
+youtube.com##ytd-video-renderer:has(#video-title:has-text(#Shorts))
+youtube.com##ytd-video-renderer:has(#video-title:has-text(#SHORTS))
+youtube.com##ytd-video-renderer:has(#video-title:has-text(#short))
+youtube.com##ytd-video-renderer:has(#video-title:has-text(#Short))
+
+! ----------------------------------------------------------
+! REEL/SHORTS ELEMENTS (nuclear removal)
+! ----------------------------------------------------------
+youtube.com##ytd-reel-shelf-renderer
+youtube.com##ytd-reel-video-renderer
+youtube.com##ytd-shorts
+youtube.com##[is-shorts]
+youtube.com##[page-subtype="shorts"]
+
+! ----------------------------------------------------------
+! SHORTS SECTIONS ON HOMEPAGE
+! ----------------------------------------------------------
+youtube.com##ytd-rich-section-renderer:has(#rich-shelf-header:has-text(Shorts))
+youtube.com##ytd-rich-section-renderer:has([is-shorts])
+youtube.com##ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts])
+
+! ----------------------------------------------------------
+! SIDEBAR NAVIGATION (remove Shorts button)
+! ----------------------------------------------------------
+youtube.com##ytd-guide-entry-renderer:has-text(Shorts)
+youtube.com##ytd-mini-guide-entry-renderer:has-text(Shorts)
+youtube.com##ytd-guide-entry-renderer:has(a[title="Shorts"])
+youtube.com##ytd-guide-entry-renderer:has(a[href="/shorts"])
+
+! ----------------------------------------------------------
+! CHANNEL PAGE TABS
+! ----------------------------------------------------------
+youtube.com##tp-yt-paper-tab:has-text(Shorts)
+youtube.com##yt-tab-shape:has-text(Shorts)
+youtube.com##yt-tab-group-shape-wiz [tab-title="Shorts"]
+youtube.com##yt-chip-cloud-chip-renderer:has-text(Shorts)
+
+! ----------------------------------------------------------
+! SEARCH RESULTS
+! ----------------------------------------------------------
+youtube.com##ytd-search ytd-reel-shelf-renderer
+youtube.com##ytd-search ytd-video-renderer:has(a[href*="/shorts/"])
+
+! ----------------------------------------------------------
+! VIDEO PAGE - Related/Sidebar recommendations
+! ----------------------------------------------------------
+youtube.com##ytd-watch-next-secondary-results-renderer ytd-reel-shelf-renderer
+youtube.com##ytd-watch-next-secondary-results-renderer ytd-compact-video-renderer:has(a[href*="/shorts/"])
+youtube.com##ytd-structured-description-content-renderer ytd-reel-shelf-renderer
+
+! ----------------------------------------------------------
+! SUBSCRIPTIONS PAGE
+! ----------------------------------------------------------
+youtube.com##ytd-item-section-renderer.ytd-section-list-renderer[page-subtype="subscriptions"]:has(a[href*="/shorts/"])
+youtube.com##ytd-grid-renderer[page-subtype="subscriptions"] ytd-grid-video-renderer:has(a[href*="/shorts/"])
+
+! ----------------------------------------------------------
+! FIX GRID LAYOUT (prevents ugly gaps after removal)
+! ----------------------------------------------------------
+youtube.com##ytd-rich-grid-row, #contents.ytd-rich-grid-row:style(display: contents !important)
+youtube.com##ytd-rich-grid-renderer #contents:style(display: flex; flex-wrap: wrap;)

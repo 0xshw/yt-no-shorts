@@ -1,0 +1,77 @@
+! ============================================================
+! YOUTUBE SHORTS BLOCKER - MOBILE
+! uBlock Origin Filter List
+! ============================================================
+! GitHub: https://github.com/0xshw/yt-no-shorts
+! Last updated: 2025
+! 
+! This filter removes all YouTube Shorts content from the
+! mobile website (m.youtube.com)
+! ============================================================
+
+! ----------------------------------------------------------
+! SHORTS BY DATA ATTRIBUTE (primary detection)
+! ----------------------------------------------------------
+m.youtube.com##ytm-video-with-context-renderer:has([data-style="SHORTS"])
+m.youtube.com##ytm-rich-item-renderer:has([data-style="SHORTS"])
+
+! ----------------------------------------------------------
+! SHORTS BY URL DETECTION (/shorts/ in href)
+! ----------------------------------------------------------
+m.youtube.com##ytm-video-with-context-renderer:has(a[href*="/shorts/"])
+m.youtube.com##ytm-rich-item-renderer:has(a[href*="/shorts/"])
+m.youtube.com##ytm-item-section-renderer:has(a[href*="/shorts/"])
+m.youtube.com##ytm-media-item:has(a[href*="/shorts/"])
+
+! ----------------------------------------------------------
+! SHORTS BY TITLE TEXT (#shorts, #short variations)
+! ----------------------------------------------------------
+! Rich item renderer (home feed)
+m.youtube.com##ytm-rich-item-renderer:has(#video-title:has-text(#shorts))
+m.youtube.com##ytm-rich-item-renderer:has(#video-title:has-text(#Shorts))
+m.youtube.com##ytm-rich-item-renderer:has(#video-title:has-text(#SHORTS))
+m.youtube.com##ytm-rich-item-renderer:has(#video-title:has-text(#short))
+m.youtube.com##ytm-rich-item-renderer:has(#video-title:has-text(#Short))
+
+! Item section renderer (subscription feed)
+m.youtube.com##ytm-item-section-renderer:has(#video-title:has-text(#shorts))
+m.youtube.com##ytm-item-section-renderer:has(#video-title:has-text(#Shorts))
+m.youtube.com##ytm-item-section-renderer:has(#video-title:has-text(#SHORTS))
+m.youtube.com##ytm-item-section-renderer:has(#video-title:has-text(#short))
+m.youtube.com##ytm-item-section-renderer:has(#video-title:has-text(#Short))
+
+! Video with context renderer
+m.youtube.com##ytm-video-with-context-renderer:has(.media-item-headline:has-text(#shorts))
+m.youtube.com##ytm-video-with-context-renderer:has(.media-item-headline:has-text(#Shorts))
+m.youtube.com##ytm-video-with-context-renderer:has(.media-item-headline:has-text(#SHORTS))
+m.youtube.com##ytm-video-with-context-renderer:has(.media-item-headline:has-text(#short))
+m.youtube.com##ytm-video-with-context-renderer:has(.media-item-headline:has-text(#Short))
+
+! ----------------------------------------------------------
+! REEL/SHORTS ELEMENTS (nuclear removal)
+! ----------------------------------------------------------
+m.youtube.com##ytm-reel-shelf-renderer
+m.youtube.com##ytm-shorts-lockup-view-model
+m.youtube.com##ytm-shorts-lockup-view-model-v2
+m.youtube.com##ytm-reel-video-renderer
+m.youtube.com##[is-shorts]
+
+! ----------------------------------------------------------
+! SHORTS SECTIONS
+! ----------------------------------------------------------
+m.youtube.com##ytm-rich-section-renderer:has(ytm-reel-shelf-renderer)
+m.youtube.com##ytm-rich-section-renderer:has(.reel-shelf-title-wrapper)
+
+! ----------------------------------------------------------
+! NAVIGATION BAR (remove Shorts button)
+! ----------------------------------------------------------
+m.youtube.com##ytm-pivot-bar-item-renderer:has(.pivot-shorts)
+m.youtube.com##ytm-pivot-bar-item-renderer:has([tab-identifier="TAB_ID_SHORTS"])
+m.youtube.com##ytm-pivot-bar-item-renderer:nth-child(2):has(svg)
+
+! ----------------------------------------------------------
+! CHANNEL PAGE TABS
+! ----------------------------------------------------------
+m.youtube.com##.single-column-browse-results-tabs>a:has-text(Shorts)
+m.youtube.com##.scbrr-tab:has-text(Shorts)
+m.youtube.com##.tab-container a[href*="/shorts"]
