@@ -1,8 +1,12 @@
+! Title: yt-no-shorts-mobile
+! Description: uBlock Origin filters to eradicate YouTube Shorts from desktop and mobile.
+! Homepage: https://github.com/vonkoq/yt-no-shorts
+
 ! ============================================================
 ! YOUTUBE SHORTS BLOCKER - MOBILE
 ! uBlock Origin Filter List
 ! ============================================================
-! GitHub: https://github.com/0xshw/yt-no-shorts
+! GitHub: https://github.com/vonkoq/yt-no-shorts
 ! Last updated: 2025
 ! 
 ! This filter removes all YouTube Shorts content from the
